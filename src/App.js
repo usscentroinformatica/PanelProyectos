@@ -19,7 +19,7 @@ const proyectos = [
   {
     nombre: 'Registro Docentes',
     descripcion: 'Registra y gestiona perfiles de docentes en el sistema.',
-    enlace: 'https://centro-informatica-docentes.vercel.app/',
+    enlace: 'https://registro-docentes.vercel.app/',
     icono: RiUserStarLine
   },
   {
