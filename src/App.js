@@ -13,7 +13,7 @@ const proyectos = [
   {
     nombre: 'Monitoreo Docentes',
     descripcion: 'Monitorea el rendimiento y sesiones de los docentes.',
-    enlace: 'https://centroinformaticamonitoreo-docente.vercel.app/',
+    enlace: 'https://monitorecinfo.vercel.app/',
     icono: MdOutlineAnalytics
   },
   {
