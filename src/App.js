@@ -61,51 +61,45 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
               className="group relative rounded-3xl p-8 
-                         bg-gradient-to-br from-[#1a1a2e]/80 to-[#16213e]/80 
-                         backdrop-blur-xl 
-                         border border-purple-500/20 
-                         shadow-[0_8px_30px_rgba(139,92,246,0.15)] 
-                         hover:shadow-[0_20px_50px_rgba(139,92,246,0.4)] 
-                         hover:border-purple-400/50
+                         bg-[#1a1a2e]
+                         border-2 border-purple-500/30 
+                         shadow-[0_8px_30px_rgba(0,0,0,0.4)] 
+                         hover:shadow-[0_20px_60px_rgba(139,92,246,0.5)] 
+                         hover:border-purple-400
                          transition-all duration-500 
                          transform hover:-translate-y-4 hover:scale-105
                          overflow-hidden"
             >
-              {/* Borde animado */}
+              {/* Borde sólido brillante en hover */}
               <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-green-400/30 via-purple-500/30 to-green-400/30"></div>
+                <div className="absolute inset-0 rounded-3xl border-2 border-green-400"></div>
               </div>
               
-              {/* Icono con efecto 3D */}
+              {/* Icono con fondo sólido */}
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center 
-                           bg-gradient-to-br from-green-500/20 via-emerald-500/20 to-purple-600/20 
-                           border border-green-400/30
-                           shadow-[0_0_30px_rgba(74,222,128,0.3)] 
-                           group-hover:shadow-[0_0_50px_rgba(139,92,246,0.6)] 
+                           bg-purple-600
+                           group-hover:bg-green-500
+                           shadow-[0_10px_40px_rgba(139,92,246,0.6)] 
+                           group-hover:shadow-[0_10px_40px_rgba(74,222,128,0.8)] 
                            group-hover:scale-110
-                           transition-all duration-700">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-green-400/10 to-purple-500/10 blur-xl"></div>
-                <proyecto.icono size={48} className="relative z-10 text-green-400 drop-shadow-lg group-hover:text-purple-400 transition-colors duration-500" />
+                           transition-all duration-500">
+                <proyecto.icono size={48} className="text-white drop-shadow-2xl" />
               </div>
               
               {/* Texto */}
-              <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-emerald-300 to-purple-400 text-center mb-3 drop-shadow-md group-hover:from-green-400 group-hover:to-purple-500 transition-all duration-500">
+              <h3 className="text-2xl font-bold text-white text-center mb-3 drop-shadow-md group-hover:text-green-400 transition-all duration-300">
                 {proyecto.nombre}
               </h3>
-              <p className="text-gray-300 text-sm text-center leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+              <p className="text-gray-400 text-sm text-center leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                 {proyecto.descripcion}
               </p>
               
-              {/* Glow decorativo mejorado */}
-              <div className="absolute -inset-2 rounded-3xl opacity-0 
+              {/* Glow decorativo sólido */}
+              <div className="absolute -inset-1 rounded-3xl opacity-0 
                               group-hover:opacity-100 
-                              transition-opacity duration-700 
-                              bg-gradient-to-br from-green-500/20 via-purple-500/20 to-emerald-500/20 
-                              blur-2xl -z-10"></div>
-              
-              {/* Partículas decorativas */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 bg-green-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                              transition-opacity duration-500 
+                              bg-green-500/30
+                              blur-xl -z-10"></div>
             </a>
           ))}
         </div>
