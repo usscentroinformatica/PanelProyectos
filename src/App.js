@@ -41,7 +41,7 @@ function App() {
         {/* Título */}
         <div className="text-center mb-16">
           <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-purple-500 drop-shadow-2xl tracking-tight mb-2">
-            Mis Proyectos
+            Proyectos
           </h1>
           <div className="h-1 w-32 mx-auto bg-gradient-to-r from-green-400 to-purple-500 rounded-full mb-6"></div>
           <p className="text-gray-300 text-lg mt-4">
