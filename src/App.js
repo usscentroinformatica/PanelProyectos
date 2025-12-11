@@ -31,7 +31,7 @@ const proyectos = [
   {
     nombre: 'Encuesta Estudiantes',
     descripcion: 'Sistema de encuestas para recoger opiniones y evaluaciones de los estudiantes.',
-    enlace: 'https://encuesta-estudiantes.vercel.app/',
+    enlace: 'https://encuestacinf.netlify.app/',
     icono: LuFileText   // Ícono de formulario/encuesta
   }
 ];
