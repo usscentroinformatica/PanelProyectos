@@ -63,7 +63,7 @@ const proyectos = [
   {
     nombre: 'Registro Docentes',
     descripcion: 'Registra y gestiona perfiles de docentes en el sistema.',
-    enlace: 'https://registro-docentes.vercel.app/',
+    enlace: 'https://registro-docente.netlify.app/',
     icono: RiUserStarLine,
     categoria: 'Docentes',
     fecha: '2025'
