@@ -63,7 +63,7 @@ const proyectos = [
   {
     nombre: 'Registro Docentes',
     descripcion: 'Registra y gestiona perfiles de docentes en el sistema.',
-    enlace: 'https://registro-docente.netlify.app/',
+    enlace: 'https://registros-docentes.vercel.app/',
     icono: RiUserStarLine,
     categoria: 'Docentes',
     fecha: '2025'
@@ -79,7 +79,7 @@ const proyectos = [
   {
     nombre: 'Encuesta Estudiantes',
     descripcion: 'Sistema de encuestas para recoger opiniones y evaluaciones de los estudiantes.',
-    enlace: 'https://encuestacinf.netlify.app/',
+    enlace: 'https://encuesta-estudiantes.vercel.app/',
     icono: LuFileText,
     categoria: 'Estudiantes',
     fecha: '2025'
