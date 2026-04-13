@@ -19,7 +19,8 @@ import {
   LuCpu,
   LuDatabase,
   LuFileSpreadsheet,
-  LuCode
+  LuCode,
+  LuBarChart3
 } from 'react-icons/lu';
 import { MdOutlineAnalytics } from 'react-icons/md';
 import { RiUserStarLine } from 'react-icons/ri';
@@ -30,11 +31,10 @@ const COLORES = {
   morado: '#5a2290',
   celeste: '#11acd3',
   fondoOscuro: '#0a0a1a',
-  fondoClaro: '#f8f9fa', // Cambiado a un gris muy claro
+  fondoClaro: '#f8f9fa',
   grisOscuro: '#1a1a2e',
-  grisClaro: '#f1f3f5', // Más suave
-  grisBorde: '#e9ecef', // Color para bordes en tema claro
-  // Colores más suaves para tema claro
+  grisClaro: '#f1f3f5',
+  grisBorde: '#e9ecef',
   verdeClaro: '#4CAF50',
   moradoClaro: '#7B1FA2',  
   celesteClaro: '#0288D1',
@@ -83,6 +83,14 @@ const proyectos = [
     icono: LuFileText,
     categoria: 'Estudiantes',
     fecha: '2025'
+  },
+  {
+    nombre: 'Reporte Encuesta',
+    descripcion: 'Sistema de reportes y análisis de encuestas para visualizar resultados y métricas.',
+    enlace: 'https://reporte-encuesta.vercel.app/',
+    icono: LuBarChart3,
+    categoria: 'Estudiantes',
+    fecha: '2025'
   }
 ];
 
@@ -100,7 +108,6 @@ function App() {
     ? proyectos 
     : proyectos.filter(p => p.categoria === categoriaFiltro);
 
-  // Textos según idioma
   const textos = {
     es: {
       titulo: "Proyectos del Centro",
@@ -166,12 +173,10 @@ function App() {
 
   const t = textos[idioma];
 
-  // Función para obtener colores según el tema
   const getColor = (colorBase, opacity = 1) => {
     if (temaOscuro) {
       return colorBase;
     }
-    // Para tema claro, usar versiones más suaves
     switch(colorBase) {
       case COLORES.verde: return COLORES.verdeClaro;
       case COLORES.morado: return COLORES.moradoClaro;
@@ -180,7 +185,6 @@ function App() {
     }
   };
 
-  // Función para obtener color de texto según el tema
   const getTextColor = (tipo = 'primario') => {
     if (temaOscuro) {
       return tipo === 'primario' ? COLORES.textoClaro : '#a0aec0';
@@ -189,7 +193,6 @@ function App() {
     }
   };
 
-  // Función para obtener color de fondo según el tema
   const getBgColor = (intensidad = 'normal') => {
     if (temaOscuro) {
       return intensidad === 'claro' ? COLORES.grisOscuro : COLORES.fondoOscuro;
@@ -206,7 +209,6 @@ function App() {
         color: getTextColor('primario')
       }}
     >
-      {/* Efectos de fondo sutiles */}
       <div 
         className="absolute top-10 -right-20 w-80 h-80 rounded-full opacity-5"
         style={{ backgroundColor: getColor(COLORES.celeste) }}
@@ -216,7 +218,6 @@ function App() {
         style={{ backgroundColor: getColor(COLORES.verde) }}
       ></div>
 
-      {/* Botón para abrir/cerrar panel en móvil */}
       <button
         onClick={() => setMenuAbiertoMobile(!menuAbiertoMobile)}
         className={`lg:hidden fixed top-6 left-6 z-50 p-3 rounded-lg text-white shadow-lg transition-all duration-300 hover:scale-110`}
@@ -225,7 +226,6 @@ function App() {
         {menuAbiertoMobile ? <LuX size={24} /> : <LuMenu size={24} />}
       </button>
 
-      {/* Botón flotante para mostrar panel cuando está oculto en desktop */}
       {!panelAbierto && (
         <button
           onClick={() => setPanelAbierto(true)}
@@ -236,7 +236,6 @@ function App() {
         </button>
       )}
 
-      {/* Overlay para cerrar menú de configuración */}
       {mostrarConfig && (
         <div 
           className="fixed inset-0 bg-black/40 z-40 backdrop-blur-sm"
@@ -244,7 +243,6 @@ function App() {
         />
       )}
 
-      {/* Modal de configuración centrado */}
       {mostrarConfig && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
           <div 
@@ -255,7 +253,6 @@ function App() {
               boxShadow: temaOscuro ? 'none' : '0 10px 40px rgba(0,0,0,0.1)'
             }}
           >
-            {/* Encabezado del modal */}
             <div 
               className="p-6"
               style={{ backgroundColor: getColor(COLORES.morado) }}
@@ -283,9 +280,7 @@ function App() {
               </div>
             </div>
 
-            {/* Contenido del modal */}
             <div className="p-6 space-y-6">
-              {/* Configuración de Idioma */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-lg" style={{ backgroundColor: `${getColor(COLORES.celeste)}20` }}>
@@ -333,7 +328,6 @@ function App() {
                 </div>
               </div>
 
-              {/* Configuración de Tema */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-lg" style={{ backgroundColor: `${getColor(COLORES.verde)}20` }}>
@@ -386,7 +380,6 @@ function App() {
               </div>
             </div>
 
-            {/* Footer del modal */}
             <div className="p-6 border-t" style={{ borderTopColor: temaOscuro ? '#3a3a4e' : COLORES.grisBorde }}>
               <button
                 onClick={() => setMostrarConfig(false)}
@@ -401,7 +394,6 @@ function App() {
       )}
 
       <div className="flex min-h-screen">
-        {/* Panel Lateral Izquierdo - CON BORDES EN TEMA CLARO */}
         <aside 
           className={`
             ${menuAbiertoMobile ? 'translate-x-0' : '-translate-x-full'} 
@@ -418,12 +410,10 @@ function App() {
             boxShadow: temaOscuro ? 'none' : '0 0 20px rgba(0,0,0,0.05)'
           }}
         >
-          {/* Encabezado del Panel - CON BORDE */}
           <div className="p-4 border-b" style={{ 
             borderBottomColor: temaOscuro ? '#3a3a4e' : COLORES.grisBorde,
             minHeight: '60px'
           }}>
-            {/* Botón para colapsar/expandir panel - CON BORDE EN TEMA CLARO */}
             <button
               onClick={() => setPanelAbierto(!panelAbierto)}
               className={`hidden lg:flex items-center justify-center w-8 h-8 rounded-lg hover:scale-110 transition-transform ${!temaOscuro ? 'border' : ''}`}
@@ -437,10 +427,8 @@ function App() {
             </button>
           </div>
 
-          {/* Sección de Usuario - CON BORDE */}
           <div className="p-4 border-b" style={{ borderBottomColor: temaOscuro ? '#3a3a4e' : COLORES.grisBorde }}>
             <div className={`flex ${panelAbierto ? 'flex-col items-center text-center' : 'flex-col items-center justify-center'} p-3`}>
-              {/* Icono del usuario arriba - CON BORDE EN TEMA CLARO */}
               <div 
                 className={`flex items-center justify-center ${panelAbierto ? 'w-16 h-16 mb-4' : 'w-10 h-10'} rounded-full ${!temaOscuro ? 'border-2' : ''}`}
                 style={{ 
@@ -451,7 +439,6 @@ function App() {
                 <LuUser size={panelAbierto ? 28 : 20} className="text-white" />
               </div>
               
-              {/* Texto solo cuando el panel está expandido */}
               {panelAbierto && (
                 <div className="flex-1 min-w-0 w-full">
                   <p className={`text-sm font-medium mb-1`} style={{ color: getTextColor('primario') }}>
@@ -465,7 +452,6 @@ function App() {
             </div>
           </div>
 
-          {/* Menú de Navegación - CON BORDES EN BOTONES */}
           <nav className="p-4">
             <ul className="space-y-2">
               <li>
@@ -512,7 +498,6 @@ function App() {
             </ul>
           </nav>
 
-          {/* Sección de Tecnologías - CON BORDES */}
           {panelAbierto && (
             <div className="p-4 border-t" style={{ borderTopColor: temaOscuro ? '#3a3a4e' : COLORES.grisBorde }}>
               <div className="flex items-center gap-2 mb-3">
@@ -522,7 +507,6 @@ function App() {
                 </span>
               </div>
               <div className="space-y-2">
-                {/* React */}
                 <div 
                   className={`flex items-center gap-2 p-2 rounded-lg ${!temaOscuro ? 'border' : ''}`}
                   style={{ 
@@ -541,7 +525,6 @@ function App() {
                   )}
                 </div>
 
-                {/* Firebase */}
                 <div 
                   className={`flex items-center gap-2 p-2 rounded-lg ${!temaOscuro ? 'border' : ''}`}
                   style={{ 
@@ -560,7 +543,6 @@ function App() {
                   )}
                 </div>
 
-                {/* Google Sheets */}
                 <div 
                   className={`flex items-center gap-2 p-2 rounded-lg ${!temaOscuro ? 'border' : ''}`}
                   style={{ 
@@ -582,7 +564,6 @@ function App() {
             </div>
           )}
 
-          {/* Filtros por Categoría - CON BORDES */}
           {panelAbierto && (
             <div className="p-4 border-t" style={{ borderTopColor: temaOscuro ? '#3a3a4e' : COLORES.grisBorde }}>
               <div className="flex items-center gap-2 mb-3">
@@ -623,7 +604,6 @@ function App() {
             </div>
           )}
 
-          {/* Botón para expandir cuando está colapsado */}
           {!panelAbierto && (
             <button
               onClick={() => setPanelAbierto(true)}
@@ -638,7 +618,6 @@ function App() {
           )}
         </aside>
 
-        {/* Overlay para móvil */}
         {menuAbiertoMobile && (
           <div 
             className="fixed inset-0 bg-black/50 lg:hidden z-30"
@@ -646,9 +625,7 @@ function App() {
           />
         )}
 
-        {/* Contenido Principal - CON BORDES EN TEMA CLARO */}
         <main className="flex-1 overflow-auto" style={{ backgroundColor: getBgColor('claro') }}>
-          {/* Header principal - CON BORDE */}
           <div 
             className="sticky top-0 z-10 p-4 lg:p-6 border-b"
             style={{
@@ -674,7 +651,6 @@ function App() {
           </div>
 
           <div className="p-4 lg:p-8 w-full">
-            {/* Contador simple de proyectos */}
             <div className="mb-8 px-4 lg:px-8">
               <p className="text-sm" style={{ color: getTextColor('secundario') }}>
                 Mostrando <span className="font-bold" style={{ color: getColor(COLORES.celeste) }}>{proyectosFiltrados.length}</span> de <span className="font-bold" style={{ color: getColor(COLORES.morado) }}>{proyectos.length}</span> proyectos
@@ -686,7 +662,6 @@ function App() {
               </p>
             </div>
 
-            {/* Filtros Mobile - CON BORDES */}
             <div className="lg:hidden mb-6 px-4">
               <div className="flex flex-wrap gap-2">
                 {categorias.map((cat) => (
@@ -709,7 +684,6 @@ function App() {
               </div>
             </div>
 
-            {/* Grid de proyectos - CON BORDES EN TEMA CLARO */}
             <div className="px-4 lg:px-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {proyectosFiltrados.map((proyecto, index) => (
@@ -722,7 +696,6 @@ function App() {
                       boxShadow: temaOscuro ? 'none' : '0 2px 8px rgba(0,0,0,0.05)'
                     }}
                   >
-                    {/* Header de la tarjeta */}
                     <div className="p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div 
@@ -769,7 +742,6 @@ function App() {
                       </div>
                     </div>
                     
-                    {/* Efecto hover */}
                     <div 
                       className="absolute bottom-0 left-0 right-0 h-1 transition-all duration-300 group-hover:h-2"
                       style={{ backgroundColor: getColor(COLORES.celeste) }}
@@ -779,7 +751,6 @@ function App() {
               </div>
             </div>
 
-            {/* Footer informativo simple - CON BORDE */}
             <div className="mt-12 pt-8 border-t px-4 lg:px-8" style={{ borderTopColor: temaOscuro ? '#3a3a4e' : COLORES.grisBorde }}>
               <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div>
