@@ -55,7 +55,7 @@ const proyectos = [
   {
     nombre: 'Monitoreo Docentes',
     descripcion: 'Monitorea el rendimiento y sesiones de los docentes.',
-    enlace: 'https://monitorecinfo.vercel.app/',
+    enlace: 'https://monitoreouss.vercel.app/',
     icono: MdOutlineAnalytics,
     categoria: 'Docentes',
     fecha: '2025'
