@@ -79,15 +79,7 @@ const proyectos = [
   {
     nombre: 'Encuesta Estudiantes',
     descripcion: 'Sistema de encuestas para recoger opiniones y evaluaciones de los estudiantes.',
-    enlace: 'https://encuesta-estudiantes.vercel.app/',
-    icono: LuFileText,
-    categoria: 'Estudiantes',
-    fecha: '2026'
-  },
-  {
-    nombre: 'Reporte Encuesta',
-    descripcion: 'Sistema de reportes y análisis de encuestas para visualizar resultados y métricas.',
-    enlace: 'https://reporte-encuesta.vercel.app/',
+    enlace: 'https://encuesta-cinf.vercel.app/',
     icono: LuFileText,
     categoria: 'Estudiantes',
     fecha: '2026'
