@@ -784,7 +784,7 @@ function App() {
               <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div>
                   <p className="text-sm" style={{ color: getTextColor('secundario') }}>
-                    {proyectos.length} proyectos disponibles • Año 2025
+                    {proyectos.length} proyectos disponibles • Año 2026
                   </p>
                 </div>
                 <div className="flex items-center gap-4">
